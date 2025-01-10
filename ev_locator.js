@@ -6,7 +6,7 @@ let chargingInterval;
 
 async function fetchStationsData() {
   try {
-    const response = await fetch("http://localhost:3000/stations");
+    const response = await fetch("https://ev-charging-backend-hecdehhbbgbye2c6.canadacentral-01.azurewebsites.net/stations");
     const stations = await response.json();
     console.log("fetched stations:", stations);
     return stations;
