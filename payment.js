@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded',async() =>{
     const {publishableKey} = await fetch("https://ev-platform-server-production.up.railway.app/payment/config").then((r) => r.json());
     const stripe = Stripe(publishableKey);
 
-    const {clientSecret} = await fetch("https://ev-platform-server-production.up.railway.app/payment/create-payment-intent"){
+    const {clientSecret} = await fetch("https://ev-platform-server-production.up.railway.app/payment/create-payment-intent",{
         method: "POST",
         headers:{
             "Content-Type":"application/json"
@@ -31,6 +31,4 @@ document.addEventListener('DOMContentLoaded',async() =>{
             messages.innerText = error.message; 
         }
     })
-   
 });
-​
