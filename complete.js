@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',async() =>{
-    const {publishableKey} = await fetch("http://localhost:8000/payment/config").then((r) => r.json());
+    const {publishableKey} = await fetch("https://ev-platform-server-production.up.railway.app/payment/config").then((r) => r.json());
     const stripe = Stripe(publishableKey);
 
     const params = new URLSearchParams(window.location.href)
