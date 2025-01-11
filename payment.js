@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded',async() =>{
     console.log("DOM fully loaded");
-    const {publishableKey} = await fetch("https://ev-platform-server-production.up.railway.app/payment/config").then((r) => r.json());
+    const {publishableKey} = await fetch("/payment/config").then((r) => r.json());
     const stripe = Stripe(publishableKey);
 
-    const {clientSecret} = await fetch("https://ev-platform-server-production.up.railway.app/payment/create-payment-intent",{
+    const {clientSecret} = await fetch("/payment/create-payment-intent",{
         method: "POST",
         headers:{
             "Content-Type":"application/json"
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded',async() =>{
         const {error} = await stripe.confirmPayment({
             elements,
             confirmParams:{
-                return_url:  "https://ev-charging-frontend-cza3hgccgmb9f7bh.canadacentral-01.azurewebsites.net/complete.html"
+                return_url: window.location.href.split("?")[0]+ "complete.html"
             }
         })
         if(error){
