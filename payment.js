@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded',async() =>{
         const {error} = await stripe.confirmPayment({
             elements,
             confirmParams:{
-                return_url: window.location.href.split("?")[0]+ "complete.html"
+                return_url: "https://ev-charging-frontend-cza3hgccgmb9f7bh.canadacentral-01.azurewebsites.net/complete.htmlcomplete.html"
             }
         })
         if(error){
