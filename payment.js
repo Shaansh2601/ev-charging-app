@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded',async() =>{
             messages.innerText = error.message; 
         }
     })
+    const cost = GetURLParameter("cost")
+    console.log(cost);
+    document.getElementById("cost").innerHTML = cost;
 });
 function GetURLParameter(sParam)
 {
