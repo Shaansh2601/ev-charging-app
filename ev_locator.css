@@ -136,4 +136,6 @@ progress::-moz-progress-bar {
   font-size: 18px;
   color: #333;
   font-weight: bold;
+  margin-bottom: 10px;
+
 }
