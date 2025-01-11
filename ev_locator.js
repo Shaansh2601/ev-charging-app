@@ -130,6 +130,11 @@ async function completeCharging() {
     );
     const data = await response.json();
     console.log(`Session completed. Cost: ${data.total_cost}`);
+    document.getElementById("cost-amount").innerText = data.total_cost.toFixed(3);
+    document.getElementById("total-cost").style.display = "block";
+
+
+
     document.getElementById("complete-charging").disabled = true;
     document.getElementById("payment-button").style.display = "block";
     //alert(`Session completed. Total Cost: ${data.total_cost}`);
