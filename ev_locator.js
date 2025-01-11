@@ -10,8 +10,12 @@ async function fetchStationsData() {
       "https://ev-charging-backend-production.up.railway.app/stations"
     );
     const stations = await response.json();
-    console.log("fetched stations:", stations);
+    stations.forEach((station) => {
+      placeMarker(station);
+    });
+console.log("fetched stations:", stations);
     return stations;
+
   } catch (error) {
     console.error("error fetching stations", error);
     return [];
@@ -26,11 +30,7 @@ function initMap() {
 
   map = new google.maps.Map(document.getElementById("map"), mapLook);
 
-  fetchStationsData().then((stations) => {
-    stations.forEach((station) => {
-      placeMarker(station);
-    });
-  });
+ 
 }
 
 function placeMarker(station) {
