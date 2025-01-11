@@ -129,8 +129,8 @@ async function completeCharging() {
       }
     );
     const data = await response.json();
-    console.log(`Session completed. Cost: ${data.total_cost}`);
-    document.getElementById("cost-amount").innerText = data.total_cost.toFixed(3);
+
+    document.getElementById("cost-amount").innerText = data.total_cost;
     document.getElementById("total-cost").style.display = "block";
 
 
