@@ -13,7 +13,7 @@ document
 
     try {
       const response = await fetch(
-        "http://evcharginggobackend.us-east-1.elasticbeanstalk.com/auth/sign-in",
+        "https://ev-platform-server-production.up.railway.app/auth/sign-in",
         {
           method: "POST",
           headers: {

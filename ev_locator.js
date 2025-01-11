@@ -6,7 +6,9 @@ let chargingInterval;
 
 async function fetchStationsData() {
   try {
-    const response = await fetch("https://ev-charging-backend-hecdehhbbgbye2c6.canadacentral-01.azurewebsites.net/stations");
+    const response = await fetch(
+      "https://ev-charging-backend-production.up.railway.app/stations"
+    );
     const stations = await response.json();
     console.log("fetched stations:", stations);
     return stations;
@@ -89,7 +91,7 @@ async function startCharging() {
   console.log("Starting session for station:", selectedStation);
   try {
     const response = await fetch(
-      "http://localhost:3000/sessions/start-charging",
+      "https://ev-charging-backend-production.up.railway.app/sessions/start-charging",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -119,7 +121,7 @@ async function completeCharging() {
 
   try {
     const response = await fetch(
-      "http://localhost:3000/sessions/complete-charging",
+      "https://ev-charging-backend-production.up.railway.app/sessions/complete-charging",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -144,7 +146,7 @@ async function proceedToPayment() {
 
   try {
     const costResponse = await fetch(
-      `http://localhost:3000/sessions/get-cost`,
+      `https://ev-charging-backend-production.up.railway.app/sessions/get-cost`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
